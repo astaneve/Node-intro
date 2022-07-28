@@ -7,15 +7,20 @@
 // console.log("Asta Ilgaude", casual.firstname_suffix + casual.lastname_suffix);
 
 const casual = require('casual');
+const sex = ['male', 'female', 'other'];
+const randomSex = sex[casual.integer((from = 0), (to = 2))];
 
-casual.define('user', function() {
+casual.define('user', () => {
     return {
         name_prefix: casual.name_prefix,
         first_name: casual.first_name,
         last_name: casual.last_name,
-        address: casual.address,
+        sex: randomSex,
+        address: {
+        treet: casual.street,
         city: casual.city,
         country: casual.country,
+        },
         email: casual.email,
         password: casual.password,
         integer: casual.integer(from = 0, to = 99),
