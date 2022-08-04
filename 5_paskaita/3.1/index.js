@@ -1,0 +1,28 @@
+const express = require("express");
+const cors = require("cors");
+
+const PORT = 8080;
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+const names = [Asta];
+
+app.get("/names", (req, res) => {
+    res.status = 200;
+    res.send(names);
+});
+
+app.post("/names", (req, res) => {
+    console.log(req.body);
+    console.log(req.body.name);
+    names.push(req.body).name;
+    res.send(req.body);
+    // "Asta" - stringas
+    // { name: "Asta" } - objektas
+});
+
+app.listen(PORT, () =>
+console.log(`Server is running on http://localhost:${PORT}`)
+);
