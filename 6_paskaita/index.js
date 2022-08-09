@@ -1,8 +1,8 @@
-const express = require("express");
-const { appendFile } = require("fs");
-require("dotenv").config();
+const express = require('express');
+require('dotenv').config();
+
+const app = express();
 
 const port = process.env.PORT || 8080;
 
-
-appendFile.listen(port, () => console.log(`SErver is running on port ${port}`));
+app.listen(port, () => console.log(`Server is running on port ${port}`));
