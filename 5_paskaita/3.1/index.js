@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const names = [Asta];
+const names = ["Asta"];
 
 app.get("/names", (req, res) => {
     res.status = 200;
