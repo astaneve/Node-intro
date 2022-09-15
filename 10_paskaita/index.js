@@ -31,10 +31,7 @@ const mysqlConfig = {
   app.get("/Shirts", async (req, res) => {
     try {
       const con = await mysql.createConnection(mysqlConfig);
-      
-
      const response = await con.execute("SELECT * FROM defaultdb.Shirts ORDER BY price ASC LIMIT 3;");
-
       res.send(response[0]);
       await con.end();
     } catch (e) {
@@ -47,7 +44,7 @@ const mysqlConfig = {
     try {
       const con = await mysql.createConnection(mysqlConfig);
       
-//{brand :"", size :"", model:"", prise: 10.00}
+//{brand :"", size :"", model:"", price: 10.00}
 console.log(req.body);
      const response = await con.execute(
          `INSERT INTO defaultdb.Shirts (brand, model, size, price) values ('${req.body.brand}', '${req.body.model}', '${req.body.size}', '${req.body.price}')`);
